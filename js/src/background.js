@@ -2,7 +2,7 @@
  * Created by koji on 15/10/31.
  */
 import Issue from './Issue';
-ar url = 'https://dl.dropboxusercontent.com/u/52284341/sample.json';
+var url = 'https://dl.dropboxusercontent.com/u/52284341/sample.json';
 var issue = new Issue('koji', 'hoge');
 onInit();
 window.setInterval(onInit, 8000);
