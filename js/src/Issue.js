@@ -1,7 +1,7 @@
 export default class Issue{
-  constructor(userId, password){
-    this.userId = userId;
-    this.password = password;
+//class Issue{
+  constructor(){
+    "use strict";
   }
 
   setTotalIssue(totalIssue){
@@ -36,4 +36,6 @@ export default class Issue{
    })
   }
 }
+
+//export default new Issue();
 

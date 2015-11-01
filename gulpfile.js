@@ -10,7 +10,7 @@ var babel = require('gulp-babel');
 var plumber = require('gulp-plumber');
 var notify = require('gulp-notify');
 
-gulp.task('default', ['babel', 'watch'], function(){
+gulp.task('default', ['babel', 'babel_react', 'watch'], function(){
 });
 
 gulp.task('babel', function(){
@@ -21,6 +21,16 @@ gulp.task('babel', function(){
   .pipe(source('bundle.js'))
   .pipe(gulp.dest('./js/dest/'))
 });
+
+gulp.task('babel_react', function(){
+  browserify('./js/src/choose_sample', { debug: true })
+    .transform(babelify)
+    .bundle()
+    .on("error", function (err) { console.log("Error : " + err.message); })
+    .pipe(source('choose_sample.js'))
+    .pipe(gulp.dest('./js/dest/'))
+});
+
 
 // gulp.task('babel', function(){
 //   return gulp.src('./js/src#<{(|.js')
@@ -36,5 +46,5 @@ gulp.task('babel', function(){
 //                              });
 
 gulp.task('watch', function() {
-  gulp.watch('./js/src/*.js', ['babel'])
+  gulp.watch('./js/src/*.js', ['babel', 'babel_react'])
 });

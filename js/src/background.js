@@ -3,7 +3,12 @@
  */
 import Issue from './Issue';
 var url = 'https://dl.dropboxusercontent.com/u/52284341/sample.json';
-var issue = new Issue('koji', 'hoge');
+var issue = new Issue();
+chrome.runtime.onMessage.addListener((req, sender, sendResponse) =>{
+  "use strict";
+  console.log(req);
+  sendResponse(issue);
+});
 onInit();
 window.setInterval(onInit, 8000);
 
