@@ -2,7 +2,7 @@
  * Created by koji on 15/10/31.
  */
 import Issue from './Issue';
-var url = 'file:///Users/koji/development/JiraIssueChecker/sample.json';
+ar url = 'https://dl.dropboxusercontent.com/u/52284341/sample.json';
 var issue = new Issue('koji', 'hoge');
 onInit();
 window.setInterval(onInit, 8000);
@@ -17,7 +17,7 @@ function onInit(){
       console.log(result);
       issue.setTotalIssue(result.total);
       issue.setItemsNumberOfIssue(result.issues);
-      chrome.browserAction.setBadgeText({text: issue.getTotalIssue()});
+      chrome.browserAction.setBadgeText({text: issue.getTotalIssue().toString()});
       console.log(issue.getItemsNumberOfIssue());
     }
   }
